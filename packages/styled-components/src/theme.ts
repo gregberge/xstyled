@@ -1,8 +1,13 @@
 import { createUseGetter } from '@xstyled/core'
-import { th } from '@xstyled/system'
-import { useTheme } from 'styled-components'
+import { th, Theme } from '@xstyled/system'
+import { useTheme as useScTheme } from 'styled-components'
 
-export { useTheme }
+/**
+ * Passthrough to styled-components `useTheme`, but returning the xstyled `Theme` type.
+ */
+export function useTheme(): Theme {
+  return useScTheme()
+}
 
 export const useTh = createUseGetter(th, useTheme)
 
